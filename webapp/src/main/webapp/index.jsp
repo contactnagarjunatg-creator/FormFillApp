@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>FormFillApp | Professional Onboarding Suite</title>
-    <!-- Google Fonts + Font Awesome 6 (sharp & clean) -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FormFillApp | Shaadi • Indian Wedding Curl Theme</title>
+    <!-- Premium Fonts: Cursive / Italic / Curly style -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,249 +16,224 @@
         }
 
         body {
-            background: radial-gradient(circle at 10% 30%, #0a0f1e, #05070f);
-            font-family: 'Space Grotesk', sans-serif;
             min-height: 100vh;
+            background: linear-gradient(145deg, #fef5e7 0%, #fff0e0 100%);
+            font-family: 'Playfair Display', 'Inter', serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* animated background orbs */
+        /* ---------- INDIAN WEDDING CURLY BRANCHES (SVG & decorative elements) ---------- */
         body::before {
-            content: '';
+            content: "";
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 70% 20%, rgba(0, 255, 196, 0.08), transparent 60%);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.2"><path fill="none" stroke="%23b87333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M120,50 C180,20 240,70 280,40 C320,10 370,60 420,30 C470,0 520,55 570,35 C620,15 660,65 710,45 C760,25 800,75 850,55 C900,35 940,80 990,60 C1040,40 1080,90 1120,70" /><path fill="none" stroke="%23d4a373" stroke-width="2" d="M140,100 C200,130 260,90 320,120 C380,150 440,110 500,140 C560,170 620,130 680,160 C740,190 800,150 860,175 C920,200 980,165 1040,190" /><path fill="none" stroke="%23b5651d" stroke-width="2" stroke-dasharray="4 6" d="M80,200 C150,170 210,230 280,200 C350,170 410,230 480,210 C550,190 610,240 680,220 C750,200 810,250 880,235 C950,220 1000,260 1080,245" /><path fill="none" stroke="%23c97e3a" stroke-width="2.2" d="M60,330 C130,300 190,360 260,340 C330,320 390,370 460,355 C530,340 590,380 660,365 C730,350 790,390 860,378 C930,366 980,400 1050,390" /><path fill="none" stroke="%23945c30" stroke-width="1.8" d="M40,470 C120,440 180,490 250,475 C320,460 380,500 450,490 C520,480 580,510 650,505 C720,500 780,530 850,520 C920,510 970,540 1040,535" /><circle cx="280" cy="40" r="6" fill="%23e08e3a" opacity="0.6" /><circle cx="570" cy="35" r="8" fill="%23d47e2c" opacity="0.5" /><circle cx="850" cy="55" r="5" fill="%23b86b2a" opacity="0.6" /><path fill="none" stroke="%23b46a2c" stroke-width="2" stroke-linecap="round" d="M250,150 C270,140 285,170 300,155 C315,140 330,165 350,150" /><path fill="none" stroke="%23995a27" stroke-width="2" d="M680,280 C695,270 710,295 728,282 C745,269 762,290 780,277" /><path fill="none" stroke="%23ad6b35" stroke-width="1.5" d="M880,300 C895,288 915,310 935,298 C955,286 970,306 990,295" /><text font-family="Great Vibes" fill="%23b56a2c" font-size="20" x="920" y="130" opacity="0.45">~ mehendi ~</text><text font-family="Great Vibes" fill="%239c5e2a" font-size="18" x="80" y="560" opacity="0.45">~ eternal blessings ~</text></svg>');
+            background-repeat: repeat;
+            background-size: 550px;
+            background-position: top left;
             pointer-events: none;
+            z-index: 0;
         }
+
+        /* extra floral curly overlays */
         body::after {
-            content: '';
+            content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(100, 108, 255, 0.08), transparent 70%);
+            bottom: 0;
+            right: 0;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(209, 143, 56, 0.08) 0%, rgba(235, 190, 110, 0) 80%);
+            border-radius: 50%;
             pointer-events: none;
         }
 
-        /* main glass panel - completely different layout (split style) */
-        .register-hub {
-            max-width: 1300px;
+        /* main card — like a wedding invitation card */
+        .wedding-card {
+            max-width: 680px;
             width: 100%;
-            background: rgba(15, 20, 35, 0.55);
-            backdrop-filter: blur(16px);
-            border-radius: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+            background: rgba(255, 252, 245, 0.94);
+            backdrop-filter: blur(3px);
+            border-radius: 4rem 2rem 4rem 2rem;
+            box-shadow: 0 30px 50px rgba(120, 60, 30, 0.2), 0 0 0 12px rgba(255, 235, 200, 0.6), 0 0 0 2px #e7c8a0 inset;
+            position: relative;
+            z-index: 2;
             overflow: hidden;
             transition: all 0.3s ease;
+            border: 1px solid #fae6c3;
         }
 
-        /* inner flex layout: left side branding + right form */
-        .dashboard-grid {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        /* left panel - modern brand story */
-        .brand-panel {
-            flex: 1.2;
-            background: linear-gradient(145deg, #0b1022, #060915);
-            padding: 3rem 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-right: 1px solid rgba(255,255,255,0.05);
-        }
-        .badge-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(0, 230, 200, 0.12);
-            padding: 0.5rem 1.2rem;
-            border-radius: 60px;
-            width: fit-content;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(0, 255, 200, 0.2);
-            margin-bottom: 2rem;
-        }
-        .badge-icon i {
+        /* intricate border pattern like toran */
+        .wedding-card::before {
+            content: "✽ ✾ ✿ ❀ ✤ ✽";
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            text-align: center;
             font-size: 1.3rem;
-            color: #0ef;
-            text-shadow: 0 0 6px #0ef;
+            letter-spacing: 8px;
+            color: #cd8d5b;
+            opacity: 0.7;
+            font-family: 'Great Vibes', cursive;
+            pointer-events: none;
         }
-        .badge-icon span {
+
+        /* inner content padding */
+        .card-inner {
+            padding: 2.5rem 2rem 2.8rem;
+        }
+
+        /* header with elegant italic */
+        .wedding-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .wedding-header .subtle-mandala {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.9rem;
             font-weight: 500;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: #b9f3ff;
+            color: #b5763a;
+            letter-spacing: 2px;
+            margin-bottom: 0.2rem;
+            font-style: italic;
         }
-        .brand-panel h2 {
-            font-size: 2.8rem;
+        .wedding-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
             font-weight: 700;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff, #a0f0ff);
+            font-style: italic;
+            background: linear-gradient(135deg, #b45f2b, #e7b27d);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            margin: 5px 0;
         }
-        .brand-panel .tagline {
-            color: #9aa4bf;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 2.5rem;
-            max-width: 90%;
-        }
-        .feature-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #ccd6f6;
+        .wedding-header p {
+            font-family: 'Inter', cursive;
+            font-style: italic;
+            color: #aa7a4c;
             font-size: 0.9rem;
-            font-weight: 400;
-        }
-        .feature-item i {
-            width: 26px;
-            color: #2effe0;
-            font-size: 1.1rem;
-        }
-        .trust-badge {
-            margin-top: 2rem;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .trust-badge span {
-            font-size: 0.7rem;
-            color: #7e8bb2;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            border-top: 1px dashed #e9cfab;
+            display: inline-block;
+            padding-top: 8px;
         }
 
-        /* right side — form container fresh look */
-        .form-panel {
-            flex: 1.5;
-            padding: 2.5rem 2.8rem;
-            background: rgba(8, 12, 24, 0.6);
-        }
-
-        .form-header-mini {
-            margin-bottom: 2rem;
-        }
-        .form-header-mini h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-            letter-spacing: -0.3px;
-        }
-        .form-header-mini p {
-            color: #8f9bb3;
-            font-size: 0.85rem;
-            margin-top: 6px;
-        }
-
-        /* modern input groups (floating style) */
-        .neo-input-group {
-            margin-bottom: 1.5rem;
+        /* form groups with curly touch */
+        .form-group {
+            margin-bottom: 1.6rem;
             position: relative;
         }
-        .neo-input-group input,
-        .neo-input-group select {
-            width: 100%;
-            background: rgba(20, 28, 44, 0.8);
-            border: 1.2px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1.4rem;
-            padding: 1rem 1rem 1rem 3rem;
-            font-size: 0.95rem;
-            font-family: 'Space Grotesk', monospace;
-            color: #f0f3fa;
-            transition: all 0.25s;
-            outline: none;
-            font-weight: 500;
-            backdrop-filter: blur(2px);
-        }
-        .neo-input-group select {
-            appearance: none;
-            cursor: pointer;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%238ca0c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-            background-repeat: no-repeat;
-            background-position: right 1.2rem center;
-            background-size: 1rem;
-            padding-right: 2.8rem;
-        }
-        .neo-input-group input:focus,
-        .neo-input-group select:focus {
-            border-color: #2effe0;
-            box-shadow: 0 0 0 3px rgba(46, 255, 224, 0.2);
-            background: rgba(18, 28, 46, 0.95);
-        }
-        .input-icon-left {
-            position: absolute;
-            left: 1.1rem;
-            bottom: 1rem;
-            color: #6f7c9b;
-            font-size: 1.1rem;
-            pointer-events: none;
-            transition: color 0.2s;
-        }
-        .neo-input-group input:focus + .input-icon-left,
-        .neo-input-group select:focus ~ .input-icon-left {
-            color: #2effe0;
-        }
-        .toggle-visibility {
-            position: absolute;
-            right: 1.1rem;
-            bottom: 1rem;
-            color: #8a99bb;
-            cursor: pointer;
-            z-index: 2;
-            transition: color 0.2s;
-        }
-        .toggle-visibility:hover {
-            color: #2effe0;
-        }
-
-        /* strength meter & match line */
-        .strength-meter {
-            display: flex;
-            gap: 6px;
-            margin-top: 8px;
-        }
-        .strength-segment {
-            height: 4px;
-            flex: 1;
-            background: #2a3348;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-        .strength-segment.active {
-            background: linear-gradient(90deg, #2effe0, #0bc5b0);
-        }
-        .helper-text {
-            font-size: 0.7rem;
-            color: #8c9bb5;
-            margin-top: 6px;
+        .form-group label {
             display: flex;
             align-items: center;
             gap: 8px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            color: #8a542a;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+        .form-group label i {
+            color: #c28546;
+            font-size: 0.9rem;
         }
 
-        /* error styles */
-        .error-text {
+        /* input & select - elegant rounded with curly vintage */
+        .curly-input, .curly-select {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 2.6rem;
+            font-family: 'Inter', 'Playfair Display', serif;
+            font-size: 1rem;
+            background-color: #fffef7;
+            border: 1.5px solid #f0dbbc;
+            border-radius: 2rem;
+            transition: all 0.25s;
+            outline: none;
+            color: #43240c;
+            font-weight: 500;
+            box-shadow: inset 0 1px 2px #fff8e7, 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .curly-select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23b46a32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1rem;
+            cursor: pointer;
+        }
+        .curly-input:focus, .curly-select:focus {
+            border-color: #c98f55;
+            box-shadow: 0 0 0 4px rgba(193, 118, 52, 0.15);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            color: #c28a54;
+            font-size: 1rem;
+            pointer-events: none;
+            font-style: normal;
+        }
+
+        /* password eye toggle */
+        .toggle-eye {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            color: #b47b45;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 3;
+        }
+        .toggle-eye:hover {
+            color: #744a22;
+        }
+
+        /* password strength and hints */
+        .strength-wrapper {
+            margin-top: 8px;
+            display: flex;
+            gap: 5px;
+        }
+        .strength-bar {
+            height: 4px;
+            flex: 1;
+            background: #eedbc8;
+            border-radius: 6px;
+        }
+        .strength-bar.active {
+            background: #d69554;
+        }
+        .hint-italic {
+            font-family: 'Inter', cursive;
+            font-style: italic;
             font-size: 0.7rem;
-            color: #ff7b72;
+            color: #b97f48;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .error-msg {
+            font-family: 'Inter', cursive;
+            font-style: italic;
+            font-size: 0.7rem;
+            color: #c05a2b;
             margin-top: 6px;
             margin-left: 12px;
             display: flex;
@@ -265,207 +241,207 @@
             gap: 5px;
         }
 
-        /* cta button futuristic */
-        .cta-glow {
+        /* wedding style button */
+        .wedding-btn {
             width: 100%;
-            background: linear-gradient(95deg, #0ef0d0, #0a7c9e);
+            background: linear-gradient(105deg, #b8672c, #dc9a62);
             border: none;
             padding: 1rem;
-            border-radius: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-weight: 700;
-            font-size: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #010101;
+            font-size: 1.1rem;
+            color: #fff9ef;
+            border-radius: 3rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 0.6rem;
-            letter-spacing: -0.2px;
-            box-shadow: 0 8px 20px rgba(0, 230, 200, 0.2);
+            margin-top: 12px;
+            box-shadow: 0 8px 20px rgba(165, 85, 25, 0.25);
+            letter-spacing: 1px;
         }
-        .cta-glow i {
-            font-size: 1.1rem;
-            transition: transform 0.2s;
+        .wedding-btn i {
+            font-size: 1.2rem;
         }
-        .cta-glow:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -12px rgba(0, 230, 200, 0.4);
-            background: linear-gradient(95deg, #2effe0, #1699b3);
+        .wedding-btn:hover {
+            background: linear-gradient(105deg, #9d5623, #c48248);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(120, 60, 20, 0.35);
         }
-        .signin-link {
+
+        .sign-in-area {
             text-align: center;
             margin-top: 2rem;
-            font-size: 0.85rem;
-            color: #96a2c2;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #875c34;
+            border-top: 1px dashed #eddabc;
+            padding-top: 1.2rem;
         }
-        .signin-link a {
-            color: #2effe0;
+        .sign-in-area a {
+            color: #bb6b37;
+            font-weight: bold;
             text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px dashed rgba(46, 255, 224, 0.5);
+            border-bottom: 1px dotted #d69458;
+            margin-left: 6px;
+        }
+        .sign-in-area a:hover {
+            color: #904e1f;
         }
 
-        /* responsive */
-        @media (max-width: 900px) {
-            .dashboard-grid {
-                flex-direction: column;
-            }
-            .brand-panel {
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-                padding: 2rem;
-            }
-            .form-panel {
-                padding: 2rem;
-            }
-            .brand-panel h2 {
-                font-size: 2rem;
-            }
+        /* embellishment: curly flourish before/after submit */
+        .floral-divider {
+            text-align: center;
+            font-size: 1rem;
+            color: #e2bc88;
+            margin: 8px 0 0;
+            font-family: 'Great Vibes', cursive;
         }
 
-        /* toast notif modern */
-        .notification-toast {
+        /* toast notification wedding style */
+        .wedding-toast {
             position: fixed;
             bottom: 30px;
-            right: 30px;
-            background: rgba(10, 20, 28, 0.9);
-            backdrop-filter: blur(12px);
-            border-left: 4px solid #2effe0;
-            border-radius: 1rem;
-            padding: 12px 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #fff9ef;
+            border-left: 8px solid #e2aa74;
+            border-radius: 60px;
+            padding: 10px 20px;
+            font-family: 'Inter', cursive;
+            font-style: italic;
+            font-weight: 500;
+            color: #794f2a;
+            box-shadow: 0 12px 22px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 500;
-            color: white;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+            opacity: 0;
+            visibility: hidden;
+            backdrop-filter: blur(4px);
         }
-        .notification-toast.show {
-            transform: translateX(0);
+        .wedding-toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 550px) {
+            .card-inner {
+                padding: 1.8rem;
+            }
+            .wedding-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* custom select option style */
+        option {
+            font-style: normal;
+        }
+        i, .curly-font {
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-<div class="register-hub">
-    <div class="dashboard-grid">
-        <!-- left panel (completely different branding) -->
-        <div class="brand-panel">
-            <div>
-                <div class="badge-icon">
-                    <i class="fas fa-layer-group"></i>
-                    <span>FORMFILLAPP v3.0</span>
-                </div>
-                <h2>Build your<br>professional edge.</h2>
-                <div class="tagline">Join the next-gen ecosystem for DevOps & Cloud architects. Secure, AI‑ready, and streamlined.</div>
-                <div class="feature-list">
-                    <div class="feature-item"><i class="fas fa-cloud-upload-alt"></i> Auto-fill & smart parsing</div>
-                    <div class="feature-item"><i class="fas fa-shield-alt"></i> 256‑bit encrypted profiles</div>
-                    <div class="feature-item"><i class="fas fa-chart-line"></i> Career track insights</div>
-                    <div class="feature-item"><i class="fas fa-globe"></i> Global hiring partner network</div>
-                </div>
-            </div>
-            <div class="trust-badge">
-                <span><i class="fas fa-check-circle"></i> 14-day trial</span>
-                <span><i class="fas fa-clock"></i> Instant verification</span>
-                <span><i class="fas fa-headset"></i> 24/7 priority support</span>
-            </div>
+
+<div class="wedding-card">
+    <div class="card-inner">
+        <div class="wedding-header">
+            <div class="subtle-mandala">✿ Sahebji ✿</div>
+            <h1>FormFillApp · Vivaah</h1>
+            <p>✨ where tradition meets modern elegance ✨</p>
         </div>
 
-        <!-- right side: dynamic registration form (fully restructured ui/ux) -->
-        <div class="form-panel">
-            <div class="form-header-mini">
-                <h3>Create account</h3>
-                <p>Start your learning journey in 2 minutes</p>
+        <form id="weddingForm" action="#" method="post" novalidate>
+            <!-- Mobile Number -->
+            <div class="form-group" id="mobileGroup">
+                <label><i class="fas fa-phone-alt"></i> <span class="curly-font">Mangal mobile number</span></label>
+                <input type="tel" class="curly-input" id="mobileNumber" placeholder="+91 98765 43210" required>
+                <i class="fas fa-mobile-alt input-icon"></i>
+                <div class="error-msg" id="mobileError"></div>
             </div>
 
-            <form id="modernRegisterForm" action="#" method="post" novalidate>
-                <!-- mobile with country emoji style -->
-                <div class="neo-input-group" id="mobileGroupNew">
-                    <input type="tel" id="mobileModern" placeholder="Mobile number" autocomplete="tel" required>
-                    <i class="fas fa-mobile-alt input-icon-left"></i>
-                    <div class="error-text" id="mobileErrorNew"></div>
-                </div>
+            <!-- Professional Course with wedding touch -->
+            <div class="form-group" id="courseGroup">
+                <label><i class="fas fa-graduation-cap"></i> <span class="curly-font">Choose your Vidya (Course)</span></label>
+                <select class="curly-select" id="courseSelect" required>
+                    <option value="" disabled selected>— Curl your path —</option>
+                    <option value="aws">🌿 AWS DevOps Engineering</option>
+                    <option value="linux">🍂 Linux System Administration</option>
+                    <option value="docker">✨ Docker & Kubernetes Mastery</option>
+                    <option value="terraform">🌸 Terraform Infrastructure Automation</option>
+                </select>
+                <i class="fas fa-leaf input-icon"></i>
+                <div class="error-msg" id="courseError"></div>
+            </div>
 
-                <!-- professional course dropdown with enriched options -->
-                <div class="neo-input-group" id="courseGroupNew">
-                    <select id="courseModern" required>
-                        <option value="" disabled selected>— Select specialization —</option>
-                        <option value="aws">☁️ AWS DevOps Engineering</option>
-                        <option value="linux">🐧 Linux System Administration</option>
-                        <option value="docker">🐳 Docker & Kubernetes Mastery</option>
-                        <option value="terraform">🏗️ Terraform Infrastructure Automation</option>
-                    </select>
-                    <i class="fas fa-graduation-cap input-icon-left"></i>
-                    <div class="error-text" id="courseErrorNew"></div>
+            <!-- Secure Password with strength meter -->
+            <div class="form-group" id="passwordGroup">
+                <label><i class="fas fa-lock"></i> <span class="curly-font">Create sacred password</span></label>
+                <input type="password" class="curly-input" id="password" placeholder="••••••••" required>
+                <i class="fas fa-key input-icon"></i>
+                <i class="fas fa-eye toggle-eye" id="togglePassword"></i>
+                <div class="strength-wrapper" id="strengthBars">
+                    <div class="strength-bar"></div>
+                    <div class="strength-bar"></div>
+                    <div class="strength-bar"></div>
                 </div>
+                <div class="hint-italic"><i class="fas fa-feather-alt"></i> 8+ chars, letters & numbers (curly secure)</div>
+                <div class="error-msg" id="passwordError"></div>
+            </div>
 
-                <!-- password field with strength bar -->
-                <div class="neo-input-group" id="pwdGroupNew">
-                    <input type="password" id="passwordModern" placeholder="Secure password" autocomplete="new-password" required>
-                    <i class="fas fa-lock input-icon-left"></i>
-                    <i class="fas fa-eye toggle-visibility" id="togglePwdModern"></i>
-                    <div class="strength-meter" id="strengthMeter">
-                        <div class="strength-segment"></div>
-                        <div class="strength-segment"></div>
-                        <div class="strength-segment"></div>
-                    </div>
-                    <div class="helper-text"><i class="fas fa-info-circle"></i> 8+ characters, letters & numbers</div>
-                    <div class="error-text" id="passwordErrorNew"></div>
-                </div>
+            <!-- Confirm Password -->
+            <div class="form-group" id="confirmGroup">
+                <label><i class="fas fa-check-circle"></i> <span class="curly-font">Confirm the vow</span></label>
+                <input type="password" class="curly-input" id="confirmPassword" placeholder="retype password" required>
+                <i class="fas fa-heart input-icon"></i>
+                <i class="fas fa-eye toggle-eye" id="toggleConfirm"></i>
+                <div class="error-msg" id="confirmError"></div>
+            </div>
 
-                <!-- confirm password -->
-                <div class="neo-input-group" id="confirmGroupNew">
-                    <input type="password" id="confirmModern" placeholder="Confirm password" autocomplete="off" required>
-                    <i class="fas fa-shield-alt input-icon-left"></i>
-                    <i class="fas fa-eye toggle-visibility" id="toggleConfirmModern"></i>
-                    <div class="error-text" id="confirmErrorNew"></div>
-                </div>
-
-                <button type="submit" class="cta-glow" id="submitModernBtn">
-                    <i class="fas fa-arrow-right-to-bracket"></i> Launch my workspace
-                </button>
-
-                <div class="signin-link">
-                    Already registered? <a href="#" id="signinModernLink">Sign in →</a>
-                </div>
-            </form>
-        </div>
+            <button type="submit" class="wedding-btn" id="submitBtn">
+                <i class="fas fa-ring"></i> Bless My Account
+            </button>
+            <div class="floral-divider">✽ ✾ ✿ ❀ ✤</div>
+            <div class="sign-in-area">
+                Already have an invitation?
+                <a href="#" id="signInMock">Sign in with grace →</a>
+            </div>
+        </form>
     </div>
 </div>
 
-<!-- toast container -->
-<div id="modernToast" class="notification-toast">
-    <i class="fas fa-sparkles"></i>
-    <span id="toastMsgText">Welcome!</span>
+<div id="weddingToast" class="wedding-toast">
+    <i class="fas fa-feather-alt"></i> <span id="toastMessageText">✨ Welcome, dear one ✨</span>
 </div>
 
 <script>
     (function() {
-        // DOM elements (new IDs)
-        const mobileInput = document.getElementById('mobileModern');
-        const courseSelect = document.getElementById('courseModern');
-        const passwordInput = document.getElementById('passwordModern');
-        const confirmInput = document.getElementById('confirmModern');
-        const mobileError = document.getElementById('mobileErrorNew');
-        const courseError = document.getElementById('courseErrorNew');
-        const passwordError = document.getElementById('passwordErrorNew');
-        const confirmError = document.getElementById('confirmErrorNew');
-        const form = document.getElementById('modernRegisterForm');
-        const submitBtn = document.getElementById('submitModernBtn');
-        const strengthSegments = document.querySelectorAll('#strengthMeter .strength-segment');
+        // DOM elements
+        const mobileInput = document.getElementById('mobileNumber');
+        const courseSelect = document.getElementById('courseSelect');
+        const passwordInput = document.getElementById('password');
+        const confirmInput = document.getElementById('confirmPassword');
+        const mobileError = document.getElementById('mobileError');
+        const courseError = document.getElementById('courseError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmError = document.getElementById('confirmError');
+        const form = document.getElementById('weddingForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const strengthBars = document.querySelectorAll('#strengthBars .strength-bar');
+        
+        // toggle password visibility
+        const togglePwd = document.getElementById('togglePassword');
+        const toggleConfirm = document.getElementById('toggleConfirm');
 
-        // toggle visibility for both pass fields
-        const togglePwd = document.getElementById('togglePwdModern');
-        const toggleConfirm = document.getElementById('toggleConfirmModern');
-
-        function togglePasswordVisibility(inputField, toggleIcon) {
+        function togglePassword(inputField, toggleIcon) {
             if(inputField.type === 'password') {
                 inputField.type = 'text';
                 toggleIcon.classList.remove('fa-eye');
@@ -477,170 +453,166 @@
             }
         }
         if(togglePwd && passwordInput) {
-            togglePwd.addEventListener('click', () => togglePasswordVisibility(passwordInput, togglePwd));
+            togglePwd.addEventListener('click', () => togglePassword(passwordInput, togglePwd));
         }
         if(toggleConfirm && confirmInput) {
-            toggleConfirm.addEventListener('click', () => togglePasswordVisibility(confirmInput, toggleConfirm));
+            toggleConfirm.addEventListener('click', () => togglePassword(confirmInput, toggleConfirm));
         }
-
-        // strength checker (ux focused)
-        function evaluatePasswordStrength(pwd) {
-            let score = 0;
-            if(pwd.length >= 8) score++;
-            if(/[A-Za-z]/.test(pwd) && /[0-9]/.test(pwd)) score++;
-            if(/[^A-Za-z0-9]/.test(pwd)) score = Math.min(score+1, 3);
-            if(pwd.length >= 12) score = Math.min(score+1, 3);
-            return Math.min(score, 3);
+        
+        // Password strength meter evaluation
+        function evaluateStrength(pwd) {
+            let strength = 0;
+            if(pwd.length >= 8) strength++;
+            if(/[A-Za-z]/.test(pwd) && /[0-9]/.test(pwd)) strength++;
+            if(/[^A-Za-z0-9]/.test(pwd) || pwd.length >= 12) strength = Math.min(strength + 1, 3);
+            return strength;
         }
-
+        
         function updateStrengthMeter(pwd) {
-            const strength = evaluatePasswordStrength(pwd);
-            strengthSegments.forEach((seg, idx) => {
-                if(idx < strength) seg.classList.add('active');
-                else seg.classList.remove('active');
+            const strength = evaluateStrength(pwd);
+            strengthBars.forEach((bar, idx) => {
+                if(idx < strength) bar.classList.add('active');
+                else bar.classList.remove('active');
             });
         }
-
-        // validation functions
-        function validateMobileField() {
+        
+        // Real-time validations
+        function validateMobile() {
             const mobile = mobileInput.value.trim();
-            if(!mobile) {
-                mobileError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Mobile number required';
+            if(mobile === "") {
+                mobileError.innerHTML = '<i class="fas fa-flower"></i> Mobile number required for auspicious start';
                 return false;
             }
             const digits = mobile.replace(/[\s\-\(\)\+]/g, '');
-            if(digits.length < 8 || digits.length > 15 || !/^\d+$/.test(digits)) {
-                mobileError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Valid mobile number (8-15 digits)';
+            if(!/^\d+$/.test(digits) || digits.length < 8 || digits.length > 15) {
+                mobileError.innerHTML = '<i class="fas fa-leaf"></i> Enter valid Indian/global mobile (8-15 digits)';
                 return false;
             }
             mobileError.innerHTML = '';
             return true;
         }
-
-        function validateCourseField() {
-            const val = courseSelect.value;
-            if(!val) {
-                courseError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please pick a professional course';
+        
+        function validateCourse() {
+            const courseVal = courseSelect.value;
+            if(!courseVal) {
+                courseError.innerHTML = '<i class="fas fa-feather"></i> Please choose a professional course';
                 return false;
             }
             courseError.innerHTML = '';
             return true;
         }
-
-        function validatePasswordField() {
+        
+        function validatePassword() {
             const pwd = passwordInput.value;
-            if(!pwd) {
-                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Create a password';
+            if(pwd === "") {
+                passwordError.innerHTML = '<i class="fas fa-heart-broken"></i> Password is required';
+                updateStrengthMeter('');
                 return false;
             }
             if(pwd.length < 8) {
-                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Minimum 8 characters required';
+                passwordError.innerHTML = '<i class="fas fa-curl"></i> At least 8 characters needed';
+                updateStrengthMeter(pwd);
                 return false;
             }
             const hasLetter = /[A-Za-z]/.test(pwd);
-            const hasNum = /[0-9]/.test(pwd);
-            if(!hasLetter || !hasNum) {
-                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Combine letters & numbers';
+            const hasNumber = /[0-9]/.test(pwd);
+            if(!hasLetter || !hasNumber) {
+                passwordError.innerHTML = '<i class="fas fa-feather"></i> Mix of letters & numbers for strong vow';
+                updateStrengthMeter(pwd);
                 return false;
             }
             passwordError.innerHTML = '';
             updateStrengthMeter(pwd);
             return true;
         }
-
-        function validateConfirmField() {
+        
+        function validateConfirm() {
             const pwd = passwordInput.value;
             const confirm = confirmInput.value;
-            if(!confirm) {
-                confirmError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please confirm your password';
+            if(confirm === "") {
+                confirmError.innerHTML = '<i class="fas fa-ring"></i> Please confirm your password';
                 return false;
             }
             if(pwd !== confirm) {
-                confirmError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Passwords do not match';
+                confirmError.innerHTML = '<i class="fas fa-leaf"></i> Passwords do not match — please align';
                 return false;
             }
             confirmError.innerHTML = '';
             return true;
         }
-
-        // realtime listeners
-        mobileInput.addEventListener('input', validateMobileField);
-        courseSelect.addEventListener('change', validateCourseField);
+        
+        // Event listeners for live UX
+        mobileInput.addEventListener('input', validateMobile);
+        courseSelect.addEventListener('change', validateCourse);
         passwordInput.addEventListener('input', () => {
-            validatePasswordField();
-            if(confirmInput.value.length > 0) validateConfirmField();
+            validatePassword();
+            if(confirmInput.value.length > 0) validateConfirm();
         });
-        confirmInput.addEventListener('input', validateConfirmField);
-
-        // toast function
-        function showToastMessage(message, isError = false) {
-            const toastEl = document.getElementById('modernToast');
-            const toastSpan = document.getElementById('toastMsgText');
-            const iconEl = toastEl.querySelector('i');
+        confirmInput.addEventListener('input', validateConfirm);
+        
+        // Toast notification with Indian wedding style
+        function showWeddingToast(message, isError = false) {
+            const toast = document.getElementById('weddingToast');
+            const toastSpan = document.getElementById('toastMessageText');
+            const icon = toast.querySelector('i');
             if(isError) {
-                iconEl.className = 'fas fa-circle-exclamation';
-                toastEl.style.borderLeftColor = '#ff7b72';
+                icon.className = "fas fa-leaf";
+                toast.style.borderLeftColor = "#c05a2b";
             } else {
-                iconEl.className = 'fas fa-sparkles';
-                toastEl.style.borderLeftColor = '#2effe0';
+                icon.className = "fas fa-feather-alt";
+                toast.style.borderLeftColor = "#e2aa74";
             }
             toastSpan.innerText = message;
-            toastEl.classList.add('show');
+            toast.classList.add('show');
             setTimeout(() => {
-                toastEl.classList.remove('show');
+                toast.classList.remove('show');
             }, 3000);
         }
-
-        // submit with rich feedback
+        
+        // handle form submit with beautiful wedding feedback
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const isMobileOk = validateMobileField();
-            const isCourseOk = validateCourseField();
-            const isPwdOk = validatePasswordField();
-            const isConfirmOk = validateConfirmField();
-
-            if(isMobileOk && isCourseOk && isPwdOk && isConfirmOk) {
-                const selectedCourse = courseSelect.options[courseSelect.selectedIndex]?.text || 'Professional Course';
-                const mobileDisplay = mobileInput.value.trim();
-                // success diff UI: cool loading state on button
-                const originalBtnContent = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Securing workspace...';
+            const isMobileValid = validateMobile();
+            const isCourseValid = validateCourse();
+            const isPwdValid = validatePassword();
+            const isConfirmValid = validateConfirm();
+            
+            if(isMobileValid && isCourseValid && isPwdValid && isConfirmValid) {
+                const courseText = courseSelect.options[courseSelect.selectedIndex]?.text || "Vidya";
+                const mobileMask = mobileInput.value.trim();
+                // Show loading on button
+                const originalBtn = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Blessings in progress...';
                 submitBtn.disabled = true;
                 setTimeout(() => {
-                    showToastMessage(`✨ Welcome aboard! ${selectedCourse} track unlocked for ${mobileDisplay}`, false);
-                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Workspace ready!';
+                    showWeddingToast(`🌸 Shagun! Your ${courseText} journey begins. Welcome, ${mobileMask} 🌸`, false);
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Account sanctified ✨';
                     setTimeout(() => {
-                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.innerHTML = originalBtn;
                         submitBtn.disabled = false;
-                        // optional: reset form? no, just keep data
-                    }, 1800);
+                    }, 1700);
                 }, 900);
             } else {
-                showToastMessage(`Please complete all fields correctly`, true);
-                // scroll to first error element
-                const firstErrorField = document.querySelector('.error-text:not(:empty)');
-                if(firstErrorField) firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                showWeddingToast("Please complete all details with care (curly branches guide you)", true);
+                const firstError = document.querySelector('.error-msg:not(:empty)');
+                if(firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
-
-        // sign in mock modern
-        const signinMock = document.getElementById('signinModernLink');
-        if(signinMock) {
-            signinMock.addEventListener('click', (e) => {
+        
+        // Sign in mock
+        const signLink = document.getElementById('signInMock');
+        if(signLink) {
+            signLink.addEventListener('click', (e) => {
                 e.preventDefault();
-                showToastMessage(`🔐 Sign-in portal ready — welcome back to FormFillApp`, false);
+                showWeddingToast("ॐ Sign in with elegance — welcome back to FormFillApp", false);
             });
         }
-
+        
         // initial strength update
         updateStrengthMeter('');
-        // add minor placeholder effect for mobile
-        mobileInput.addEventListener('focus', () => {
-            if(!mobileInput.value) mobileInput.placeholder = "+1 234 567 8900";
-        });
-        mobileInput.addEventListener('blur', () => {
-            mobileInput.placeholder = "Mobile number";
-        });
+        // additional curly placeholder effect 
+        mobileInput.addEventListener('focus', () => { if(!mobileInput.value) mobileInput.placeholder = "✦ +91 98765 43210 ✦"; });
+        mobileInput.addEventListener('blur', () => { mobileInput.placeholder = "+91 98765 43210"; });
     })();
 </script>
 </body>
