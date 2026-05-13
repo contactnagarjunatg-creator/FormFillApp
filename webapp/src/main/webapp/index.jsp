@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>FormFillApp | Professional Registration</title>
-    <!-- Google Fonts & Simple Icons via Font Awesome (rich UI/UX) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FormFillApp | Professional Onboarding Suite</title>
+    <!-- Google Fonts + Font Awesome 6 (sharp & clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,624 +15,632 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e9f0fc 0%, #d9e4f5 100%);
-            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 10% 30%, #0a0f1e, #05070f);
+            font-family: 'Space Grotesk', sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* card container with glassmorphism & rich shadows */
-        .form-card {
-            max-width: 560px;
+        /* animated background orbs */
+        body::before {
+            content: '';
+            position: absolute;
             width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(0px);
-            border-radius: 2rem;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 8px 18px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(0, 255, 196, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(100, 108, 255, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* main glass panel - completely different layout (split style) */
+        .register-hub {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(15, 20, 35, 0.55);
+            backdrop-filter: blur(16px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
             overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .form-card:hover {
-            box-shadow: 0 30px 55px -15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* header area with brand & illustration */
-        .form-header {
-            background: #0b2b3f;
-            padding: 1.8rem 2rem 1.5rem 2rem;
-            color: white;
-            text-align: center;
-        }
-
-        .brand {
+        /* inner flex layout: left side branding + right form */
+        .dashboard-grid {
             display: flex;
+            flex-wrap: wrap;
+        }
+        /* left panel - modern brand story */
+        .brand-panel {
+            flex: 1.2;
+            background: linear-gradient(145deg, #0b1022, #060915);
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .badge-icon {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 12px;
-            margin-bottom: 12px;
+            background: rgba(0, 230, 200, 0.12);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            width: fit-content;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 255, 200, 0.2);
+            margin-bottom: 2rem;
         }
-
-        .brand i {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        .badge-icon i {
+            font-size: 1.3rem;
+            color: #0ef;
+            text-shadow: 0 0 6px #0ef;
         }
-
-        .brand h1 {
-            font-size: 1.9rem;
+        .badge-icon span {
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #b9f3ff;
+        }
+        .brand-panel h2 {
+            font-size: 2.8rem;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            background: linear-gradient(120deg, #fff, #c7e9ff);
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff, #a0f0ff);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            margin-bottom: 1rem;
         }
-
-        .form-header p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            font-weight: 400;
-            margin-top: 6px;
+        .brand-panel .tagline {
+            color: #9aa4bf;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
         }
-
-        /* main form area */
-        .form-body {
-            padding: 2rem 2rem 1.8rem;
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
         }
-
-        /* enhanced input groups */
-        .input-group {
-            margin-bottom: 1.6rem;
-            position: relative;
-        }
-
-        .input-group label {
+        .feature-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: #1e2f3f;
-            margin-bottom: 8px;
-            letter-spacing: -0.2px;
-        }
-
-        .input-group label i {
-            color: #2c7da0;
+            gap: 12px;
+            color: #ccd6f6;
             font-size: 0.9rem;
-            width: 20px;
+            font-weight: 400;
         }
-
-        /* input, select styling */
-        .input-group input,
-        .input-group select {
-            width: 100%;
-            padding: 0.9rem 1rem 0.9rem 2.6rem;
-            font-size: 1rem;
-            font-family: 'Inter', monospace;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 1.2rem;
-            background-color: #ffffff;
-            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            outline: none;
-            font-weight: 500;
-            color: #0a1c2a;
-        }
-
-        .input-group select {
-            appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%234a6a85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1.1rem;
-            padding-right: 2.5rem;
-        }
-
-        /* custom icons inside inputs using absolute positioning */
-        .input-icon {
-            position: absolute;
-            left: 1rem;
-            bottom: 0.95rem;
-            color: #8ba0b5;
+        .feature-item i {
+            width: 26px;
+            color: #2effe0;
             font-size: 1.1rem;
-            pointer-events: none;
-            transition: color 0.2s;
         }
-
-        /* focus states */
-        .input-group input:focus,
-        .input-group select:focus {
-            border-color: #2c7da0;
-            box-shadow: 0 0 0 4px rgba(44, 125, 160, 0.15);
+        .trust-badge {
+            margin-top: 2rem;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
         }
-
-        .input-group input:focus + .input-icon,
-        .input-group select:focus ~ .input-icon {
-            color: #2c7da0;
-        }
-
-        /* specific password strength hint (optional micro-interaction) */
-        .password-hint {
+        .trust-badge span {
             font-size: 0.7rem;
-            margin-top: 6px;
-            color: #5e7e9c;
+            color: #7e8bb2;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* register button premium look */
-        .registerbtn {
+        /* right side — form container fresh look */
+        .form-panel {
+            flex: 1.5;
+            padding: 2.5rem 2.8rem;
+            background: rgba(8, 12, 24, 0.6);
+        }
+
+        .form-header-mini {
+            margin-bottom: 2rem;
+        }
+        .form-header-mini h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+        .form-header-mini p {
+            color: #8f9bb3;
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        /* modern input groups (floating style) */
+        .neo-input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .neo-input-group input,
+        .neo-input-group select {
             width: 100%;
-            background: linear-gradient(100deg, #0f3b4f 0%, #1f5e7a 100%);
+            background: rgba(20, 28, 44, 0.8);
+            border: 1.2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.4rem;
+            padding: 1rem 1rem 1rem 3rem;
+            font-size: 0.95rem;
+            font-family: 'Space Grotesk', monospace;
+            color: #f0f3fa;
+            transition: all 0.25s;
+            outline: none;
+            font-weight: 500;
+            backdrop-filter: blur(2px);
+        }
+        .neo-input-group select {
+            appearance: none;
+            cursor: pointer;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%238ca0c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1rem;
+            padding-right: 2.8rem;
+        }
+        .neo-input-group input:focus,
+        .neo-input-group select:focus {
+            border-color: #2effe0;
+            box-shadow: 0 0 0 3px rgba(46, 255, 224, 0.2);
+            background: rgba(18, 28, 46, 0.95);
+        }
+        .input-icon-left {
+            position: absolute;
+            left: 1.1rem;
+            bottom: 1rem;
+            color: #6f7c9b;
+            font-size: 1.1rem;
+            pointer-events: none;
+            transition: color 0.2s;
+        }
+        .neo-input-group input:focus + .input-icon-left,
+        .neo-input-group select:focus ~ .input-icon-left {
+            color: #2effe0;
+        }
+        .toggle-visibility {
+            position: absolute;
+            right: 1.1rem;
+            bottom: 1rem;
+            color: #8a99bb;
+            cursor: pointer;
+            z-index: 2;
+            transition: color 0.2s;
+        }
+        .toggle-visibility:hover {
+            color: #2effe0;
+        }
+
+        /* strength meter & match line */
+        .strength-meter {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .strength-segment {
+            height: 4px;
+            flex: 1;
+            background: #2a3348;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .strength-segment.active {
+            background: linear-gradient(90deg, #2effe0, #0bc5b0);
+        }
+        .helper-text {
+            font-size: 0.7rem;
+            color: #8c9bb5;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* error styles */
+        .error-text {
+            font-size: 0.7rem;
+            color: #ff7b72;
+            margin-top: 6px;
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* cta button futuristic */
+        .cta-glow {
+            width: 100%;
+            background: linear-gradient(95deg, #0ef0d0, #0a7c9e);
             border: none;
             padding: 1rem;
-            font-size: 1.1rem;
+            border-radius: 2.2rem;
             font-weight: 700;
-            font-family: 'Inter', sans-serif;
-            color: white;
-            border-radius: 3rem;
+            font-size: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #010101;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             cursor: pointer;
-            transition: all 0.25s;
-            margin-top: 10px;
-            box-shadow: 0 8px 18px rgba(15, 59, 79, 0.25);
+            transition: all 0.3s;
+            margin-top: 0.6rem;
             letter-spacing: -0.2px;
+            box-shadow: 0 8px 20px rgba(0, 230, 200, 0.2);
         }
-
-        .registerbtn i {
-            font-size: 1.2rem;
+        .cta-glow i {
+            font-size: 1.1rem;
             transition: transform 0.2s;
         }
-
-        .registerbtn:hover {
-            background: linear-gradient(100deg, #0e2e3f, #226a88);
-            transform: translateY(-2px);
-            box-shadow: 0 14px 26px -8px rgba(15, 59, 79, 0.4);
+        .cta-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -12px rgba(0, 230, 200, 0.4);
+            background: linear-gradient(95deg, #2effe0, #1699b3);
         }
-
-        .registerbtn:hover i {
-            transform: translateX(4px);
-        }
-
-        .registerbtn:active {
-            transform: translateY(1px);
-        }
-
-        /* bottom text & link */
-        .bottom-text {
+        .signin-link {
             text-align: center;
-            margin-top: 1.8rem;
-            font-size: 0.9rem;
-            color: #4a627a;
-            border-top: 1px solid #eef2f8;
-            padding-top: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #96a2c2;
         }
-
-        .bottom-text a {
-            color: #1f6e8c;
-            font-weight: 700;
+        .signin-link a {
+            color: #2effe0;
             text-decoration: none;
-            margin-left: 6px;
-            transition: color 0.2s;
-        }
-
-        .bottom-text a:hover {
-            color: #0d435a;
-            text-decoration: underline;
-        }
-
-        /* rich validation & interactive messages */
-        .error-message {
-            font-size: 0.75rem;
-            margin-top: 6px;
-            color: #e25c5c;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 500;
-        }
-
-        .success-border {
-            border-color: #2bae66 !important;
-        }
-
-        /* micro animations */
-        @keyframes gentleShake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-            100% { transform: translateX(0); }
-        }
-
-        .shake-effect {
-            animation: gentleShake 0.3s ease-in-out 0s 1;
-        }
-
-        /* floating tooltip style for confirm match */
-        .match-status {
-            position: absolute;
-            right: 12px;
-            bottom: 14px;
-            font-size: 0.9rem;
-            cursor: default;
-        }
-
-        /* toggle icon for password visibility - modern */
-        .toggle-pwd {
-            position: absolute;
-            right: 1rem;
-            bottom: 0.9rem;
-            color: #8ba0b5;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: color 0.2s;
-            z-index: 2;
-        }
-
-        .toggle-pwd:hover {
-            color: #2c7da0;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(46, 255, 224, 0.5);
         }
 
         /* responsive */
-        @media (max-width: 500px) {
-            .form-body {
-                padding: 1.8rem;
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                flex-direction: column;
             }
-            .brand h1 {
-                font-size: 1.5rem;
+            .brand-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                padding: 2rem;
             }
-            .registerbtn {
-                font-size: 1rem;
+            .form-panel {
+                padding: 2rem;
+            }
+            .brand-panel h2 {
+                font-size: 2rem;
             }
         }
 
-        /* success animation & toast-like */
-        .toast-msg {
+        /* toast notif modern */
+        .notification-toast {
             position: fixed;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%) scale(0.9);
-            background: #1f3e48;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            backdrop-filter: blur(8px);
-            background: rgba(15, 59, 79, 0.95);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            bottom: 30px;
+            right: 30px;
+            background: rgba(10, 20, 28, 0.9);
+            backdrop-filter: blur(12px);
+            border-left: 4px solid #2effe0;
+            border-radius: 1rem;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.2s, transform 0.2s;
-            pointer-events: none;
         }
-        .toast-msg.show {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
+        .notification-toast.show {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-
-<div class="form-card" id="registrationFormCard">
-    <div class="form-header">
-        <div class="brand">
-            <i class="fas fa-id-card"></i>
-            <h1>FormFillApp</h1>
+<div class="register-hub">
+    <div class="dashboard-grid">
+        <!-- left panel (completely different branding) -->
+        <div class="brand-panel">
+            <div>
+                <div class="badge-icon">
+                    <i class="fas fa-layer-group"></i>
+                    <span>FORMFILLAPP v3.0</span>
+                </div>
+                <h2>Build your<br>professional edge.</h2>
+                <div class="tagline">Join the next-gen ecosystem for DevOps & Cloud architects. Secure, AI‑ready, and streamlined.</div>
+                <div class="feature-list">
+                    <div class="feature-item"><i class="fas fa-cloud-upload-alt"></i> Auto-fill & smart parsing</div>
+                    <div class="feature-item"><i class="fas fa-shield-alt"></i> 256‑bit encrypted profiles</div>
+                    <div class="feature-item"><i class="fas fa-chart-line"></i> Career track insights</div>
+                    <div class="feature-item"><i class="fas fa-globe"></i> Global hiring partner network</div>
+                </div>
+            </div>
+            <div class="trust-badge">
+                <span><i class="fas fa-check-circle"></i> 14-day trial</span>
+                <span><i class="fas fa-clock"></i> Instant verification</span>
+                <span><i class="fas fa-headset"></i> 24/7 priority support</span>
+            </div>
         </div>
-        <p>Smart professional onboarding · Secure & seamless</p>
-    </div>
-    <div class="form-body">
-        <!-- enhanced form with rich validation and ux -->
-        <form id="professionalForm" action="#" method="post" novalidate>
-            <!-- Mobile Number Field (tel) with icon -->
-            <div class="input-group" id="mobileGroup">
-                <label><i class="fas fa-mobile-alt"></i> Mobile Number</label>
-                <input type="tel" id="mobileNumber" placeholder="+91 98765 43210" autocomplete="tel" required>
-                <i class="fas fa-phone-alt input-icon"></i>
-                <div class="error-message" id="mobileError"></div>
+
+        <!-- right side: dynamic registration form (fully restructured ui/ux) -->
+        <div class="form-panel">
+            <div class="form-header-mini">
+                <h3>Create account</h3>
+                <p>Start your learning journey in 2 minutes</p>
             </div>
 
-            <!-- Professional Course dropdown with rich design -->
-            <div class="input-group" id="courseGroup">
-                <label><i class="fas fa-graduation-cap"></i> Professional Course</label>
-                <select id="courseSelect" required>
-                    <option value="" disabled selected>— Choose Your Specialization —</option>
-                    <option value="aws">🚀 AWS DevOps Engineering</option>
-                    <option value="linux">🐧 Linux System Administration</option>
-                    <option value="docker">🐳 Docker & Kubernetes Mastery</option>
-                    <option value="terraform">🏗️ Terraform Infrastructure Automation</option>
-                </select>
-                <i class="fas fa-chevron-down input-icon" style="pointer-events: none; left: auto; right: 1rem; left: unset; color: #9badc0;"></i>
-                <div class="error-message" id="courseError"></div>
-            </div>
+            <form id="modernRegisterForm" action="#" method="post" novalidate>
+                <!-- mobile with country emoji style -->
+                <div class="neo-input-group" id="mobileGroupNew">
+                    <input type="tel" id="mobileModern" placeholder="Mobile number" autocomplete="tel" required>
+                    <i class="fas fa-mobile-alt input-icon-left"></i>
+                    <div class="error-text" id="mobileErrorNew"></div>
+                </div>
 
-            <!-- Password Field with toggle visibility -->
-            <div class="input-group" id="passwordGroup">
-                <label><i class="fas fa-lock"></i> Create Secure Password</label>
-                <input type="password" id="password" placeholder="Minimum 8 characters" autocomplete="new-password" required>
-                <i class="fas fa-eye toggle-pwd" id="togglePassword" data-target="password"></i>
-                <i class="fas fa-key input-icon"></i>
-                <div class="password-hint"><i class="fas fa-shield-alt"></i> Use 8+ characters with letters & numbers</div>
-                <div class="error-message" id="passwordError"></div>
-            </div>
+                <!-- professional course dropdown with enriched options -->
+                <div class="neo-input-group" id="courseGroupNew">
+                    <select id="courseModern" required>
+                        <option value="" disabled selected>— Select specialization —</option>
+                        <option value="aws">☁️ AWS DevOps Engineering</option>
+                        <option value="linux">🐧 Linux System Administration</option>
+                        <option value="docker">🐳 Docker & Kubernetes Mastery</option>
+                        <option value="terraform">🏗️ Terraform Infrastructure Automation</option>
+                    </select>
+                    <i class="fas fa-graduation-cap input-icon-left"></i>
+                    <div class="error-text" id="courseErrorNew"></div>
+                </div>
 
-            <!-- Confirm Password Field with realtime match indicator -->
-            <div class="input-group" id="confirmGroup">
-                <label><i class="fas fa-check-circle"></i> Confirm Your Password</label>
-                <input type="password" id="confirmPassword" placeholder="Re-enter your password" autocomplete="off" required>
-                <i class="fas fa-eye toggle-pwd" id="toggleConfirm" data-target="confirmPassword"></i>
-                <i class="fas fa-lock input-icon"></i>
-                <div class="error-message" id="confirmError"></div>
-            </div>
+                <!-- password field with strength bar -->
+                <div class="neo-input-group" id="pwdGroupNew">
+                    <input type="password" id="passwordModern" placeholder="Secure password" autocomplete="new-password" required>
+                    <i class="fas fa-lock input-icon-left"></i>
+                    <i class="fas fa-eye toggle-visibility" id="togglePwdModern"></i>
+                    <div class="strength-meter" id="strengthMeter">
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                        <div class="strength-segment"></div>
+                    </div>
+                    <div class="helper-text"><i class="fas fa-info-circle"></i> 8+ characters, letters & numbers</div>
+                    <div class="error-text" id="passwordErrorNew"></div>
+                </div>
 
-            <!-- Submit Button with nice icon + micro interaction -->
-            <button type="submit" class="registerbtn" id="submitBtn">
-                <i class="fas fa-rocket"></i> Create My Account
-            </button>
+                <!-- confirm password -->
+                <div class="neo-input-group" id="confirmGroupNew">
+                    <input type="password" id="confirmModern" placeholder="Confirm password" autocomplete="off" required>
+                    <i class="fas fa-shield-alt input-icon-left"></i>
+                    <i class="fas fa-eye toggle-visibility" id="toggleConfirmModern"></i>
+                    <div class="error-text" id="confirmErrorNew"></div>
+                </div>
 
-            <div class="bottom-text">
-                Already have an account?
-                <a href="#" id="signInMock">Sign In Now →</a>
-            </div>
-        </form>
+                <button type="submit" class="cta-glow" id="submitModernBtn">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Launch my workspace
+                </button>
+
+                <div class="signin-link">
+                    Already registered? <a href="#" id="signinModernLink">Sign in →</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<div id="toastMessage" class="toast-msg">
-    <i class="fas fa-check-circle"></i> <span id="toastText">Account ready!</span>
+
+<!-- toast container -->
+<div id="modernToast" class="notification-toast">
+    <i class="fas fa-sparkles"></i>
+    <span id="toastMsgText">Welcome!</span>
 </div>
 
 <script>
     (function() {
-        // DOM elements
-        const mobileInput = document.getElementById('mobileNumber');
-        const courseSelect = document.getElementById('courseSelect');
-        const passwordInput = document.getElementById('password');
-        const confirmInput = document.getElementById('confirmPassword');
-        const mobileError = document.getElementById('mobileError');
-        const courseError = document.getElementById('courseError');
-        const passwordError = document.getElementById('passwordError');
-        const confirmError = document.getElementById('confirmError');
-        const form = document.getElementById('professionalForm');
-        const submitBtn = document.getElementById('submitBtn');
-        
-        // Helper to show toast notifications
-        function showToast(message, isError = false) {
-            const toastEl = document.getElementById('toastMessage');
-            const toastTextSpan = document.getElementById('toastText');
-            const iconSpan = toastEl.querySelector('i');
-            if(isError) {
-                iconSpan.className = 'fas fa-exclamation-triangle';
-                toastEl.style.background = 'rgba(180, 60, 50, 0.95)';
+        // DOM elements (new IDs)
+        const mobileInput = document.getElementById('mobileModern');
+        const courseSelect = document.getElementById('courseModern');
+        const passwordInput = document.getElementById('passwordModern');
+        const confirmInput = document.getElementById('confirmModern');
+        const mobileError = document.getElementById('mobileErrorNew');
+        const courseError = document.getElementById('courseErrorNew');
+        const passwordError = document.getElementById('passwordErrorNew');
+        const confirmError = document.getElementById('confirmErrorNew');
+        const form = document.getElementById('modernRegisterForm');
+        const submitBtn = document.getElementById('submitModernBtn');
+        const strengthSegments = document.querySelectorAll('#strengthMeter .strength-segment');
+
+        // toggle visibility for both pass fields
+        const togglePwd = document.getElementById('togglePwdModern');
+        const toggleConfirm = document.getElementById('toggleConfirmModern');
+
+        function togglePasswordVisibility(inputField, toggleIcon) {
+            if(inputField.type === 'password') {
+                inputField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
             } else {
-                iconSpan.className = 'fas fa-check-circle';
-                toastEl.style.background = 'rgba(15, 59, 79, 0.95)';
-            }
-            toastTextSpan.innerText = message;
-            toastEl.classList.add('show');
-            setTimeout(() => {
-                toastEl.classList.remove('show');
-                setTimeout(() => {
-                    if(!isError) iconSpan.className = 'fas fa-check-circle';
-                    else iconSpan.className = 'fas fa-exclamation-triangle';
-                    toastEl.style.background = 'rgba(15, 59, 79, 0.95)';
-                }, 200);
-            }, 2800);
-        }
-        
-        // Helper to remove existing error and shake class
-        function clearFieldError(groupId, errorDivId) {
-            const group = document.getElementById(groupId);
-            const errorDiv = document.getElementById(errorDivId);
-            if(errorDiv) errorDiv.innerText = '';
-            if(group) {
-                const inputField = group.querySelector('input, select');
-                if(inputField) inputField.classList.remove('shake-effect');
+                inputField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
             }
         }
-        
-        function setFieldError(groupId, errorDivId, message) {
-            const errorDiv = document.getElementById(errorDivId);
-            if(errorDiv) errorDiv.innerHTML = `<i class="fas fa-circle-exclamation" style="font-size:0.7rem;"></i> ${message}`;
-            const group = document.getElementById(groupId);
-            if(group) {
-                const inputField = group.querySelector('input, select');
-                if(inputField) {
-                    inputField.classList.add('shake-effect');
-                    setTimeout(() => {
-                        if(inputField) inputField.classList.remove('shake-effect');
-                    }, 400);
-                }
-            }
+        if(togglePwd && passwordInput) {
+            togglePwd.addEventListener('click', () => togglePasswordVisibility(passwordInput, togglePwd));
         }
-        
-        // Real-time mobile validation (indian/international simple demo)
-        function validateMobile() {
+        if(toggleConfirm && confirmInput) {
+            toggleConfirm.addEventListener('click', () => togglePasswordVisibility(confirmInput, toggleConfirm));
+        }
+
+        // strength checker (ux focused)
+        function evaluatePasswordStrength(pwd) {
+            let score = 0;
+            if(pwd.length >= 8) score++;
+            if(/[A-Za-z]/.test(pwd) && /[0-9]/.test(pwd)) score++;
+            if(/[^A-Za-z0-9]/.test(pwd)) score = Math.min(score+1, 3);
+            if(pwd.length >= 12) score = Math.min(score+1, 3);
+            return Math.min(score, 3);
+        }
+
+        function updateStrengthMeter(pwd) {
+            const strength = evaluatePasswordStrength(pwd);
+            strengthSegments.forEach((seg, idx) => {
+                if(idx < strength) seg.classList.add('active');
+                else seg.classList.remove('active');
+            });
+        }
+
+        // validation functions
+        function validateMobileField() {
             const mobile = mobileInput.value.trim();
-            if(mobile === "") {
-                setFieldError('mobileGroup', 'mobileError', 'Mobile number is required');
+            if(!mobile) {
+                mobileError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Mobile number required';
                 return false;
             }
-            const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{4,14}[)]?$/;
-            // also ensure at least 8 digits overall
-            const digitsOnly = mobile.replace(/[\s\-\(\)\+]/g, '');
-            if(!phoneRegex.test(mobile) || digitsOnly.length < 8 || digitsOnly.length > 15) {
-                setFieldError('mobileGroup', 'mobileError', 'Enter a valid mobile number (8-15 digits)');
+            const digits = mobile.replace(/[\s\-\(\)\+]/g, '');
+            if(digits.length < 8 || digits.length > 15 || !/^\d+$/.test(digits)) {
+                mobileError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Valid mobile number (8-15 digits)';
                 return false;
             }
-            clearFieldError('mobileGroup', 'mobileError');
+            mobileError.innerHTML = '';
             return true;
         }
-        
-        function validateCourse() {
-            const selected = courseSelect.value;
-            if(!selected || selected === "") {
-                setFieldError('courseGroup', 'courseError', 'Please select your professional course');
+
+        function validateCourseField() {
+            const val = courseSelect.value;
+            if(!val) {
+                courseError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please pick a professional course';
                 return false;
             }
-            clearFieldError('courseGroup', 'courseError');
+            courseError.innerHTML = '';
             return true;
         }
-        
-        function validatePasswordStrength() {
+
+        function validatePasswordField() {
             const pwd = passwordInput.value;
-            if(pwd === "") {
-                setFieldError('passwordGroup', 'passwordError', 'Password is required');
+            if(!pwd) {
+                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Create a password';
                 return false;
             }
             if(pwd.length < 8) {
-                setFieldError('passwordGroup', 'passwordError', 'Password must be at least 8 characters');
+                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Minimum 8 characters required';
                 return false;
             }
-            // at least one letter and one number for better UX (soft requirement)
             const hasLetter = /[A-Za-z]/.test(pwd);
-            const hasNumber = /[0-9]/.test(pwd);
-            if(!hasLetter || !hasNumber) {
-                setFieldError('passwordGroup', 'passwordError', 'Use mix of letters & numbers for stronger security');
+            const hasNum = /[0-9]/.test(pwd);
+            if(!hasLetter || !hasNum) {
+                passwordError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Combine letters & numbers';
                 return false;
             }
-            clearFieldError('passwordGroup', 'passwordError');
+            passwordError.innerHTML = '';
+            updateStrengthMeter(pwd);
             return true;
         }
-        
-        function validateConfirmMatch() {
+
+        function validateConfirmField() {
             const pwd = passwordInput.value;
             const confirm = confirmInput.value;
-            if(confirm === "") {
-                setFieldError('confirmGroup', 'confirmError', 'Please confirm your password');
+            if(!confirm) {
+                confirmError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please confirm your password';
                 return false;
             }
             if(pwd !== confirm) {
-                setFieldError('confirmGroup', 'confirmError', 'Passwords do not match');
+                confirmError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Passwords do not match';
                 return false;
             }
-            clearFieldError('confirmGroup', 'confirmError');
+            confirmError.innerHTML = '';
             return true;
         }
-        
-        // real-time listeners for better ux
-        mobileInput.addEventListener('input', () => { validateMobile(); });
-        courseSelect.addEventListener('change', () => { validateCourse(); });
-        passwordInput.addEventListener('input', () => { 
-            validatePasswordStrength(); 
-            if(confirmInput.value.length > 0) validateConfirmMatch();
+
+        // realtime listeners
+        mobileInput.addEventListener('input', validateMobileField);
+        courseSelect.addEventListener('change', validateCourseField);
+        passwordInput.addEventListener('input', () => {
+            validatePasswordField();
+            if(confirmInput.value.length > 0) validateConfirmField();
         });
-        confirmInput.addEventListener('input', () => { validateConfirmMatch(); });
-        
-        // Password visibility toggle
-        function setupPasswordToggle(toggleId, targetId) {
-            const toggleBtn = document.getElementById(toggleId);
-            const targetInput = document.getElementById(targetId);
-            if(toggleBtn && targetInput) {
-                toggleBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const type = targetInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                    targetInput.setAttribute('type', type);
-                    this.classList.toggle('fa-eye-slash');
-                    if(this.classList.contains('fa-eye-slash')) {
-                        this.classList.remove('fa-eye');
-                        this.classList.add('fa-eye-slash');
-                    } else {
-                        this.classList.remove('fa-eye-slash');
-                        this.classList.add('fa-eye');
-                    }
-                });
-            }
-        }
-        setupPasswordToggle('togglePassword', 'password');
-        setupPasswordToggle('toggleConfirm', 'confirmPassword');
-        
-        // additional styled micro-interaction: add autocomplete demo message
-        function showSuccessFeedback() {
-            // collect field values for demo preview
-            const mobileVal = mobileInput.value.trim();
-            const courseText = courseSelect.options[courseSelect.selectedIndex]?.text || 'Not selected';
-            // mock account creation success - rich ux toast
-            showToast(`Welcome to FormFillApp! ${mobileVal} registered with ${courseText}`, false);
-            // we could do a console log, prevent default submit handling but also simulate
-        }
-        
-        // Global submit handler with full validation and rich user feedback
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const isMobileValid = validateMobile();
-            const isCourseValid = validateCourse();
-            const isPasswordValid = validatePasswordStrength();
-            const isConfirmValid = validateConfirmMatch();
-            
-            if(isMobileValid && isCourseValid && isPasswordValid && isConfirmValid) {
-                // all good: simulate form submission to FormFillApp professional endpoint
-                // get selected course value display
-                const selectedOption = courseSelect.options[courseSelect.selectedIndex];
-                const coursePretty = selectedOption ? selectedOption.textContent : '';
-                const mobilePretty = mobileInput.value.trim();
-                // Success toast with detailed message
-                showToast(`🎉 Account created! ${coursePretty} track ready.`, false);
-                // optional: reset form UI subtle animation
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
-                submitBtn.disabled = true;
-                // simulate API delay (just for UX)
-                setTimeout(() => {
-                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Account Created!';
-                    setTimeout(() => {
-                        submitBtn.innerHTML = '<i class="fas fa-rocket"></i> Create My Account';
-                        submitBtn.disabled = false;
-                        // optional: do not reset actual fields to maintain data
-                        // For professional feel, you can also trigger fake success redirect message
-                        const toastMsg = document.getElementById('toastMessage');
-                        if(toastMsg) {
-                            toastMsg.style.background = "rgba(43, 174, 102, 0.95)";
-                            setTimeout(() => {
-                                toastMsg.style.background = "rgba(15, 59, 79, 0.95)";
-                            }, 2000);
-                        }
-                    }, 1200);
-                }, 800);
-                // Here we would normally send data to FormFillApp backend. For demo, we just show success.
-                // Additional: The bottom Sign In Now link also triggers demo message.
+        confirmInput.addEventListener('input', validateConfirmField);
+
+        // toast function
+        function showToastMessage(message, isError = false) {
+            const toastEl = document.getElementById('modernToast');
+            const toastSpan = document.getElementById('toastMsgText');
+            const iconEl = toastEl.querySelector('i');
+            if(isError) {
+                iconEl.className = 'fas fa-circle-exclamation';
+                toastEl.style.borderLeftColor = '#ff7b72';
             } else {
-                // show general error toast
-                showToast('Please fix errors before creating account', true);
-                // scroll to first invalid field gently
-                const firstError = document.querySelector('.error-message:not(:empty)');
-                if(firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                iconEl.className = 'fas fa-sparkles';
+                toastEl.style.borderLeftColor = '#2effe0';
+            }
+            toastSpan.innerText = message;
+            toastEl.classList.add('show');
+            setTimeout(() => {
+                toastEl.classList.remove('show');
+            }, 3000);
+        }
+
+        // submit with rich feedback
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const isMobileOk = validateMobileField();
+            const isCourseOk = validateCourseField();
+            const isPwdOk = validatePasswordField();
+            const isConfirmOk = validateConfirmField();
+
+            if(isMobileOk && isCourseOk && isPwdOk && isConfirmOk) {
+                const selectedCourse = courseSelect.options[courseSelect.selectedIndex]?.text || 'Professional Course';
+                const mobileDisplay = mobileInput.value.trim();
+                // success diff UI: cool loading state on button
+                const originalBtnContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Securing workspace...';
+                submitBtn.disabled = true;
+                setTimeout(() => {
+                    showToastMessage(`✨ Welcome aboard! ${selectedCourse} track unlocked for ${mobileDisplay}`, false);
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Workspace ready!';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.disabled = false;
+                        // optional: reset form? no, just keep data
+                    }, 1800);
+                }, 900);
+            } else {
+                showToastMessage(`Please complete all fields correctly`, true);
+                // scroll to first error element
+                const firstErrorField = document.querySelector('.error-text:not(:empty)');
+                if(firstErrorField) firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
-        
-        // Sign In Now mock interaction: display professional message
-        const signLink = document.getElementById('signInMock');
-        if(signLink) {
-            signLink.addEventListener('click', (e) => {
+
+        // sign in mock modern
+        const signinMock = document.getElementById('signinModernLink');
+        if(signinMock) {
+            signinMock.addEventListener('click', (e) => {
                 e.preventDefault();
-                showToast('🔐 Sign in panel ready — Demo flow for FormFillApp', false);
+                showToastMessage(`🔐 Sign-in portal ready — welcome back to FormFillApp`, false);
             });
         }
-        
-        // optional extra: floating label effect? Already interactive. Add dynamic placeholder guiding
-        // tweak visual for mobile number placeholder format guide
+
+        // initial strength update
+        updateStrengthMeter('');
+        // add minor placeholder effect for mobile
         mobileInput.addEventListener('focus', () => {
-            if(mobileInput.value === "") mobileInput.placeholder = "e.g., +1 555 123 4567";
+            if(!mobileInput.value) mobileInput.placeholder = "+1 234 567 8900";
         });
         mobileInput.addEventListener('blur', () => {
-            mobileInput.placeholder = "+91 98765 43210";
+            mobileInput.placeholder = "Mobile number";
         });
-        
-        // pre-default styles for enhanced security checkmark, no errors at start
-        // final: Hover & premium aesthetics integrated
-        console.log("FormFillApp Professional UI/UX Ready");
     })();
 </script>
 </body>
