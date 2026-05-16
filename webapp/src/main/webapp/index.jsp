@@ -652,7 +652,7 @@
             if (!mobileInput.value) mobileInput.placeholder = "e.g., +91 9988776655";
         });
         mobileInput.addEventListener('blur', () => {
-            mobileInput.placeholder = "+91 98765 43210";
+            mobileInput.placeholder = "+91 98752 43210";
         });
     })();
 </script>
